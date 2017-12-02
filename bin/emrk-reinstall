@@ -78,13 +78,13 @@ $PARTED --script $DEV mktable msdos
 
 # Boot
 echo "Creating boot partition"
-$PARTED --script $DEV mkpart primary fat32 1 150MB
+$PARTED --script $DEV mkpart primary fat32 1 80MB
 echo "Formatting boot partition"
 mkfs.vfat $BOOT
 
 # Root
 echo "Creating root partition"
-$PARTED --script $DEV mkpart primary ext3 150MB 1900MB
+$PARTED --script $DEV mkpart primary ext3 80MB 980MB
 echo "Formatting root partition"
 mkfs.ext3 -q $ROOT
 
